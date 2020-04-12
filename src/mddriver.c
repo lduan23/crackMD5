@@ -115,8 +115,7 @@ char *string;
     printf ("\n");
 }
 
-/* Measures the time to digest TEST_BLOCK_COUNT TEST_BLOCK_LEN-byte
-blocks.
+/* Measures the time to digest TEST_BLOCK_COUNT TEST_BLOCK_LEN-byte blocks.
 */
 static void MDTimeTrial ()
 {
@@ -148,7 +147,7 @@ static void MDTimeTrial ()
     printf ("Digest = ");
     MDPrint (digest);
     printf ("\nTime = %ld seconds\n", (long)(endTime-startTime));
-    printf ("Speed = %ld bytes/second\n", (long)TEST_BLOCK_LEN * (long)TEST_BLOCK_COUNT/(endTime-startTime));
+    // printf ("Speed = %ld bytes/second\n", (long)TEST_BLOCK_LEN * (long)TEST_BLOCK_COUNT/(endTime-startTime));
 }
 
 /* Digests a reference suite of strings and prints the results.
