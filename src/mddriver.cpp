@@ -107,21 +107,21 @@ static void MDTimeTrial () {
     printf(" done\n");
     printf("Digest = ");
     MDPrint(digest);
-    printf("\nTime = %ld seconds\n", (long)(endTime-startTime));
+    printf("\nTime = %ld milliseconds\n", (long)(endTime-startTime)*1000);
     // printf("Speed = %ld bytes/second\n", (long)TEST_BLOCK_LEN * (long)TEST_BLOCK_COUNT/(endTime-startTime));
 }
 
 /* Digests a reference suite of strings and prints the results. */
 static void MDTestSuite () {
-    printf("MD%d test suite:\n", MD);
+    // printf("MD%d test suite:\n", MD);
 
-    MDString("");
-    MDString("a");
-    MDString("abc");
-    MDString("message digest");
-    MDString("abcdefghijklmnopqrstuvwxyz");
-    MDString("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
-    MDString("12345678901234567890123456789012345678901234567890123456789012345678901234567890");
+    // MDString("");
+    // MDString("a");
+    // MDString("abc");
+    // MDString("message digest");
+    // MDString("abcdefghijklmnopqrstuvwxyz");
+    // MDString("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
+    // MDString("12345678901234567890123456789012345678901234567890123456789012345678901234567890");
 }
 
 /* Digests a file and prints the result. */

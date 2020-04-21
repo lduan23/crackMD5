@@ -12,6 +12,8 @@
 #include "md5.h"
 
 using namespace std;
+using std::chrono::high_resolution_clock;
+using std::chrono::duration;
 
 /* Length of test block, number of test blocks. */
 #define TEST_BLOCK_LEN 1000
@@ -45,13 +47,22 @@ void MDString (char *str) {
     unsigned char digest[16];
     unsigned int len = strlen(str);
 
+    high_resolution_clock::time_point start;
+    high_resolution_clock::time_point end;
+    duration<double, std::milli> ms;
+
+    start = high_resolution_clock::now();
     MD5Init(&context);
     MD5Update(&context, (POINTER)str, len);
     MD5Final(digest, &context);
+    end = high_resolution_clock::now();
+    ms = std::chrono::duration_cast<duration<double, std::milli>>(end - start);
 
     cout << "MD5 of '" << str << "' = ";
     MDPrint(digest);
     cout << endl;
+
+    cout << "Time = " << ms.count() << " ms" << endl;
 }
 
 void MDPrint (unsigned char digest[16]) {
