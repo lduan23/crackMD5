@@ -1,0 +1,13 @@
+==2330== NVPROF is profiling process 2330, command: ./main.out -s 123
+==2330== Profiling application: ./main.out -s 123
+==2330== Profiling result:
+No kernels were profiled.
+            Type  Time(%)      Time     Calls       Avg       Min       Max  Name
+      API calls:   99.80%  114.38ms         3  38.126ms     716ns  112.98ms  cudaProfilerStart
+                    0.09%  105.11us         1  105.11us  105.11us  105.11us  cuDeviceTotalMem
+                    0.09%  102.80us        97  1.0590us     119ns  43.359us  cuDeviceGetAttribute
+                    0.01%  16.690us         1  16.690us  16.690us  16.690us  cuDeviceGetName
+                    0.00%  1.7670us         1  1.7670us  1.7670us  1.7670us  cuDeviceGetPCIBusId
+                    0.00%  1.0080us         3     336ns     142ns     703ns  cuDeviceGetCount
+                    0.00%     630ns         2     315ns     124ns     506ns  cuDeviceGet
+                    0.00%     221ns         1     221ns     221ns     221ns  cuDeviceGetUuid
