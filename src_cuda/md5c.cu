@@ -87,7 +87,6 @@ Rotation is separate from addition to prevent recomputation. */
 
 /* MD5 initialization. Begins an MD5 operation, writing a new context. */
 void MD5Init (MD5_CTX *context) {
-// MD5_CTX *context;                                        /* context */
     context->count[0] = context->count[1] = 0;
 
     // Load magic initialization constants
@@ -101,9 +100,6 @@ void MD5Init (MD5_CTX *context) {
 operation, processing another message block, and updating the
 context. */
 void MD5Update (MD5_CTX *context, unsigned char *input, unsigned int inputLen) {
-// MD5_CTX *context;                                        /* context */
-// unsigned char *input;                                /* input block */
-// unsigned int inputLen;                     /* length of input block */
     
     high_resolution_clock::time_point start;
     high_resolution_clock::time_point end;
@@ -152,8 +148,6 @@ void MD5Update (MD5_CTX *context, unsigned char *input, unsigned int inputLen) {
 /* MD5 finalization. Ends an MD5 message-digest operation, writing the
 the message digest and zeroizing the context. */
 void MD5Final (unsigned char *digest, MD5_CTX *context) {
-// unsigned char digest[16];                         /* message digest */
-// MD5_CTX *context;                                       /* context */
     
     high_resolution_clock::time_point start;
     high_resolution_clock::time_point end;
@@ -186,8 +180,6 @@ void MD5Final (unsigned char *digest, MD5_CTX *context) {
 
 /* MD5 basic transformation. Transforms state based on block. */
 static void MD5Transform (UINT4 state[4], unsigned char block[64]) {
-// UINT4 state[4];
-// unsigned char block[64];
 
     high_resolution_clock::time_point start;
     high_resolution_clock::time_point end;
@@ -290,9 +282,6 @@ static void MD5Transform (UINT4 state[4], unsigned char block[64]) {
 
 /* Encodes input (UINT4) into output (unsigned char). Assumes len is a multiple of 4. */
 static void Encode (unsigned char *output, UINT4 *input, unsigned int len) {
-// unsigned char *output;
-// UINT4 *input;
-// unsigned int len;
     unsigned int i, j;
 
     for (i = 0, j = 0; j < len; i++, j += 4) {
@@ -305,9 +294,6 @@ static void Encode (unsigned char *output, UINT4 *input, unsigned int len) {
 
 /* Decodes input (unsigned char) into output (UINT4). Assumes len is a multiple of 4. */
 static void Decode (UINT4 *output, unsigned char *input, unsigned int len) {
-// UINT4 *output;
-// unsigned char *input;
-// unsigned int len;
     unsigned int i, j;
 
     for (i = 0, j = 0; j < len; i++, j += 4)
@@ -316,9 +302,6 @@ static void Decode (UINT4 *output, unsigned char *input, unsigned int len) {
 
 /* Note: Replace "for loop" with standard memcpy if possible. */
 static void MD5_memcpy (POINTER output, POINTER input, unsigned int len) {
-// POINTER output;
-// POINTER input;
-// unsigned int len;
     unsigned int i;
 
     for (i = 0; i < len; i++)
@@ -327,9 +310,6 @@ static void MD5_memcpy (POINTER output, POINTER input, unsigned int len) {
 
 /* Note: Replace "for loop" with standard memset if possible. */
 static void MD5_memset (POINTER output, int value, unsigned int len) {
-// POINTER output;
-// int value;
-// unsigned int len;
     unsigned int i;
 
     for (i = 0; i < len; i++)

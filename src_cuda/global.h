@@ -7,6 +7,7 @@ function argument prototyping.
 The following makes PROTOTYPES default to 0 if it has not already
 been defined with C compiler flags.
  */
+#include <inttypes.h>
 
 #ifndef PROTOTYPES
 #define PROTOTYPES 1
@@ -15,11 +16,24 @@ been defined with C compiler flags.
 /* POINTER defines a generic pointer type */
 typedef unsigned char *POINTER;
 
+// /* UINT2 defines a two byte word */
+// typedef unsigned short int UINT2;
+
+// /* UINT4 defines a four byte word */
+// typedef unsigned long int UINT4;
+
+
+/* According to below post, need to add below typedef
+** in order to compile on a 64bit machine.
+** https://stackoverflow.com/questions/33989390/md5-source-code-not-outputting-correct-values
+*/
+
 /* UINT2 defines a two byte word */
-typedef unsigned short int UINT2;
+typedef uint16_t  UINT2;
 
 /* UINT4 defines a four byte word */
-typedef unsigned long int UINT4;
+typedef uint32_t UINT4;
+
 
 /* PROTO_LIST is defined depending on how PROTOTYPES is defined above.
 If using PROTOTYPES, then PROTO_LIST returns the list, otherwise it
