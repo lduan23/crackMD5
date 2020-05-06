@@ -16,8 +16,6 @@ using namespace std;
 #define CHARSET_LEN (sizeof(CHARSET) - 1)
 
 #define WORD_LENGTH 7
-// #define WORD_LEN_MIN 7
-// #define WORD_LEN_MAX 7
 
 #define BLOCKS 16384UL
 #define THREADS 512UL
@@ -32,8 +30,7 @@ char cracked[WORD_SIZE];
 __device__ char d_charset[CHARSET_SIZE];
 __device__ char d_cracked[WORD_SIZE];
 
-
-__device__ __host__ bool nextWord(uint8_t *len, char *word, uint32_t step) {
+__host__ __device__ bool nextWord(uint8_t *len, char *word, uint32_t step) {
 
     uint32_t pos = 0;
     uint32_t add = 0;
@@ -90,7 +87,7 @@ __global__ void crack(char *charsetWord, uint8_t wordLen, uint32_t hash1, uint32
         if (t_hash1 == hash1 && t_hash2 == hash2 && t_hash3 == hash3 && t_hash4 == hash4) {
             memcpy(d_cracked, t_word, t_WordLen);
         }
-        
+
         if (!nextWord(&t_WordLen, t_CharsetWord, 1)) {
             break;
         }
@@ -100,7 +97,6 @@ __global__ void crack(char *charsetWord, uint8_t wordLen, uint32_t hash1, uint32
 
 int main (int argc, char **argv) {
 
-    // Parse argument
     if (argc != 2 || strlen(argv[1]) != 32) {
         cout << argv[0] << " + target hash" << endl;
         return -1;
